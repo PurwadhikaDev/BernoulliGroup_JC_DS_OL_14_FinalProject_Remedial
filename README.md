@@ -213,7 +213,7 @@ Model dapat memitigasi kerugian dari pembatalan booking dari pelanggan sebesar d
 
 ## Contributors
 
-- [Adam Tiova Budhiharjo](https://github.com)
+- [Adam Tiova Budhiharjo](https://github.com/adamtiova)
 - [Radif Ramadan](https://github.com/radifyadika)
 
 
