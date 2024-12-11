@@ -1,0 +1,128 @@
+Penulis:
+1. Radif Ramadan
+2. Adam Tiova Budhiharjo
+
+Prediksi Pembatalan Pemesanan Hotel
+Proyek ini bertujuan untuk menganalisis data pemesanan hotel dan membangun model machine learning untuk memprediksi kemungkinan pembatalan pemesanan. Dengan prediksi ini, pihak hotel dapat mengambil langkah-langkah proaktif untuk mengurangi kerugian akibat pembatalan.
+
+Struktur Proyek
+Data Cleaning:
+
+Menghapus kolom dengan banyak nilai hilang, seperti company dan agent.
+Menghapus baris dengan nilai hilang pada kolom penting.
+Menangani outlier pada fitur numerik seperti lead_time menggunakan teknik trimming atau imputasi.
+Memastikan konsistensi data, seperti memeriksa anomali pada kolom adults, children, dan babies.
+
+
+Exploratory Data Analysis (EDA):
+
+1. Analisis Kolom Kategorikal
+Distribusi Hotel:
+
+Tipe hotel terbagi menjadi City Hotel dan Resort Hotel.
+Proporsi pemesanan untuk City Hotel lebih tinggi dibandingkan Resort Hotel.
+Distribusi Pembatalan:
+
+Pembatalan dicatat pada kolom is_canceled.
+Tingkat pembatalan mencapai 27.7% dari total data.
+Segmentasi Pasar (market_segment):
+
+Sebagian besar pemesanan berasal dari Online Travel Agents, diikuti oleh Offline TA/TO dan Direct Bookings.
+Saluran Distribusi (distribution_channel):
+
+Pemesanan didominasi oleh saluran TA/TO (Travel Agents atau Tour Operators).
+
+2. Analisis Kolom Numerik
+Lead Time (lead_time):
+
+Distribusi lead time menunjukkan mayoritas tamu memesan beberapa hari hingga beberapa bulan sebelum tanggal kedatangan.
+Beberapa nilai outlier ditemukan dengan lead time yang sangat panjang (>500 hari).
+Durasi Menginap:
+
+stays_in_weekend_nights dan stays_in_week_nights dianalisis untuk melihat pola lama menginap.
+Mayoritas tamu menginap selama 1–3 malam, baik di akhir pekan maupun hari kerja.
+Tarif Harian Rata-rata (adr):
+
+Distribusi tarif menunjukkan perbedaan signifikan antara City Hotel dan Resort Hotel.
+Outlier ditemukan pada tarif yang jauh lebih tinggi dibandingkan rata-rata.
+
+3. Pola Pembatalan Berdasarkan Waktu
+Musim Kedatangan:
+Tingkat pembatalan lebih rendah di musim dingin, terutama untuk City Hotel, karena banyaknya perjalanan bisnis.
+Tingkat pembatalan memuncak di musim panas (Juni–Agustus), terutama pada Resort Hotel.
+Hari Kedatangan:
+Analisis berdasarkan hari kedatangan menunjukkan bahwa pembatalan lebih tinggi pada pemesanan dengan kedatangan di akhir pekan.
+
+Preprocessing & Feature Seelction: 
+
+Analisis distribusi fitur seperti lead_time, arrival_date, dan is_canceled.
+Visualisasi korelasi antar fitur menggunakan heatmap.
+Menjelajahi pola pembatalan berdasarkan tipe hotel, waktu kedatangan, dan durasi menginap.
+Preprocessing dan Feature Selection:
+
+Encoding: Variabel kategorikal diencoding menggunakan OneHotEncoding, OrdinalEncoder, dan BinaryEncoder.
+Scaling: Fitur numerik distandarisasi menggunakan RobustScaler.
+Feature Selection: Menggunakan metode statistik dan model berbasis pohon untuk memilih fitur yang relevan.
+Machine Learning:
+
+Penanganan Ketidakseimbangan Data: Menggunakan resampling seperti Random Oversampling, SMOTE, dan Random Undersampling.
+Model yang Digunakan:
+Logistic Regression
+Decision Tree
+Random Forest
+XGBoost
+LightGBM
+Evaluasi:
+Metrik utama: F0.5-Score, digunakan karena dampak False Positive lebih signifikan.
+Metrik tambahan: Accuracy, Precision, Recall, dan F1-Score.
+Hasil: Model dengan F0.5 terbaik adalah Random Forest dengan skor 66.94%.
+Implementasi:
+
+Model terbaik diintegrasikan untuk memprediksi pembatalan pemesanan hotel.
+Prediksi ini dapat digunakan untuk menetapkan kebijakan refund, mengelola overbooking, dan menawarkan insentif kepada tamu berisiko tinggi.
+Dependensi
+Proyek ini menggunakan pustaka Python berikut:
+
+Data Manipulation: pandas, numpy
+Visualisasi: matplotlib, seaborn, plotly
+Machine Learning: scikit-learn, imblearn, xgboost, lightgbm
+Encoding: category_encoders
+Utility: warnings, joblib
+Dataset
+Dataset ini mencakup data pemesanan hotel dengan kolom seperti:
+
+hotel: Tipe hotel (City atau Resort).
+is_canceled: Status pembatalan.
+lead_time: Jumlah hari sebelum kedatangan.
+Dan fitur lainnya.
+Dataset telah melalui preprocessing untuk mengatasi data hilang, outlier, dan ketidakseimbangan kelas.
+
+
+Ringkasan Analisis Pengurangan Kerugian
+Penerapan machine learning dalam memprediksi pembatalan pemesanan hotel telah berhasil mengurangi kerugian secara signifikan. Berikut adalah poin-poin utama:
+
+Kerugian Awal Tanpa Model:
+Tanpa prediksi pembatalan, kerugian total akibat pembatalan mencapai $277,000 berdasarkan tingkat pembatalan rata-rata sebesar 27.7%.
+
+Penggunaan Model Prediksi:
+Model machine learning memberikan hasil evaluasi berikut:
+
+Precision: 68.9%
+Recall: 68.9%
+Confusion matrix menunjukkan False Negatives (FN) sebanyak 862 dan False Positives (FP) sebanyak 861.
+Pengaruh Model terhadap Kerugian:
+
+Kerugian FN: Kerugian karena pembatalan aktual yang tidak terdeteksi oleh model mencapai $86,200.
+Keuntungan FP: Keuntungan dari pemesanan yang dianggap batal tetapi sebenarnya tidak mencapai $7,749.
+Kerugian Total Setelah Model: Setelah memperhitungkan kerugian FN dan keuntungan FP, kerugian total berkurang menjadi $78,451.
+Pengurangan Kerugian:
+Dengan menggunakan machine learning, kerugian dapat dikurangi sebesar $198,549, yaitu sekitar 71.6% dari kerugian awal.
+
+Kesimpulan
+Model prediksi pembatalan pemesanan hotel tidak hanya membantu mengurangi kerugian akibat pembatalan mendadak tetapi juga meningkatkan efisiensi operasional hotel dengan mengoptimalkan proses pengelolaan reservasi.
+
+Mengurangi kerugian akibat pembatalan mendadak.
+Mengoptimalkan kebijakan pemesanan.
+Menargetkan tamu untuk penawaran atau insentif khusus.
+
+
