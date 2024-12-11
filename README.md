@@ -1,5 +1,5 @@
 # Bernoulii_JCDSOL_14_FinalProject_Remedial
-# Booking Demand Cancellation Prediction
+# Hotel Booking Cancellations: A Predictive Approach
 
 ## Context
 
