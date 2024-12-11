@@ -180,7 +180,7 @@ Dengan F.05 Score yang tinggi, manajemen hotel memiliki kesempatan untuk mengamb
 
 ## Conclusion
 
-**1. Data Limitation**
+### **1. Data Limitation**
 
 Dalam analisis dan pengembangan model prediksi, batasan dataset diperlukan untuk meningkatkan relevansi dan keandalan. Lead time dibatasi antara 20-60 hari untuk fokus pada pemesanan reguler, menghapus data dengan **lead time lebih dari 60 hari**. **Zero occupancy (tamu = 0)** dihapus karena tidak logis dan tidak relevan. Untuk **ADR (Average Daily Rate), hanya data dengan nilai realistis (0-1000)** yang digunakan, menghindari kesalahan atau outlier. Batasan ini memastikan data yang konsisten dan relevan untuk menghasilkan prediksi yang akurat.
 ### **2. Machine Learning Model**
