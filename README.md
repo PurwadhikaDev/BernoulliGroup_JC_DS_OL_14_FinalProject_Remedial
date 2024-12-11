@@ -25,7 +25,7 @@ Dalam mengatasi masalah ini, penting untuk mengembangkan teknologi model machine
    - Kendala : Kesulitan dalam merencanakan ketersediaan kamar dan pendapatan akibat pembatalan mendadak yang mengakibatkan kamar kosong dan penurunan pendapatan.
    - Benefit : Dapat merencanakan pengelolaan kamar dan memaksimalkan pendapatan melalui overbooking terkontrol.
   
-- **Analytic Approach :**
+## Analytic Approach
 
 `1` : Canceled (Yes) --> Positive
 
@@ -42,20 +42,7 @@ Berdasarkan konsekuensinya, `False Positive` memiliki dampak yang lebih merugika
 
 Di sektor perhotelan, mengatasi tamu meskipun overbooking sangat beresiko karna mempengaruhi kepuasaan pelangga tetapi overbooking lebih mudah dikontrol dibandingkan dengan resiko kehilanggan loyalitas pelanggan yang dapat mempengaruhi pendapatan hotel dalam jangka panjang, karena tamu yang ingin tetap reservasi meskipun overbooking bisa diatasi dengan memberikan kompensasi kepada pelanggan akibat **[overbooking dengan tetap memaksimalkan pendapatan](https://www.channelrush.com/blog/what-is-overbooking-in-hotel-management#:~:text=By%20mastering%20this%20process%2C%20hotels%20can%20not%20only%20maximize%20their%20revenue%20potential%20from%20repeat%20guests%20but%20also%20maintain%20high%20levels%20of%20guest%20satisfaction%20despite%20the%20challenges%20posed%20by%20overbooking.)**. Oleh karena itu, penting untuk meminimalkan kesalahan `False Positive` untuk mengurangi kerugian operasional dan menjaga loyalitas pelanggan.
 
-## Research Questions
-### Cancellation
-  - How many bookings were canceled?
-  - Which month have the highest number of cancelations?
-
-### Guest 
-  - Where do the guests come from?
-  - Which are the most busy month?
-  - How long do people stay at the hotels?
-
-### Market Segment
-  - Bookings by market segment?
-
-- **Metric Evaluation :**
+## Metric Evaluation 
 
 Pada saat yang sama kedua kesalahan prediksi tersebut sama sama berdampak pada kehilangan pendapatan. Tetapi, dinilai berdasarkan konsekuensi nya `False Positive` berdampak pada kerugian yang lebih besar seperti **menambah biaya Customer Acquistion** dan juga **kehilangan Customer Lifetime Value**. Maka dari itu, perlu untuk menilai kinerja model dengan metrics yang seimbang dikeduanya dengan lebih menghindari `False Positive` yang berlebih. Pada kasus ini, kita dapat menggunakan **[F0.5 Score](https://mlexplained.blog/2023/01/09/when-to-use-f2-or-f0-5-score-f-beta-score/#:~:text=This%20enables%20one%20to%20choose%20an%20appropriate%20beta%20value%20to%20tune%20for%20the%20task%20at%20hand.%20If%20you%20want%20to%20minimize%20false%20positives%2C%20you%20want%20to%20increase%20the%20weight%20of%20precisions%2C%20so%20you%20should%20choose%20a%20value%20of%20beta%20less%20than%201%2C%20typically%200.5%20is%20chosen%20and%20is%20called%20F0.5%20score.)** untuk digunakan sebagai metrics kinerja model.
 
@@ -70,6 +57,19 @@ F0.5 = (1 + 0.5^2) \cdot \frac{\text{Precision} \cdot \text{Recall}}{(0.5^2 \cdo
 $$
 
 Dengan F.05 Score yang tinggi, manajemen hotel memiliki kesempatan untuk mengambil tindakan proaktif untuk mencegah kehilangan pelanggan dengan menawarkan opsi rebooking atau reschedule. Hal ini membantu hotel dalam mempertahankan pendapatan dan loyalitas pelanggan, sehingga membuat model prediksi `booking cancellation` menjadi alat yang efektif untuk membuat strategi manajemen hotel.
+
+## Research Questions
+### Cancellation
+  - How many bookings were canceled?
+  - Which month have the highest number of cancelations?
+
+### Guest 
+  - Where do the guests come from?
+  - Which are the most busy month?
+  - How long do people stay at the hotels?
+
+### Market Segment
+  - Bookings by market segment?
 
 ## Description of Features
 
